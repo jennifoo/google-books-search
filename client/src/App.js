@@ -31,7 +31,7 @@ import {
   Route
 } from "react-router-dom";
 import Home from "./pages/Home";
-import Post from "./pages/Post";
+// import Post from "./pages/Post";
 
 function App() {
   return (
@@ -47,6 +47,6 @@ function App() {
 
 export default App;
 
-{/* <Route exact path="/post/:id">
+/* <Route exact path="/post/:id">
 <Post />
-</Route> */}
+</Route> */

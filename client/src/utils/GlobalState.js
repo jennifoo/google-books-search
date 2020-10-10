@@ -2,8 +2,8 @@ import React, { createContext, useReducer, useContext } from "react";
 import {
   // SET_CURRENT_POST,
   // REMOVE_POST,
-  UPDATE_POSTS,
-  // ADD_POST,
+  // UPDATE_POSTS,
+  ADD_POST,
   LOADING
 } from "./actions";
 
@@ -12,6 +12,13 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
+  case SHOW_RESULTS:
+    return {
+      ...state,
+      currentPost: action.post,
+      loading: false
+    };
+
   // case SET_CURRENT_POST:
   //   return {
   //     ...state,
@@ -19,12 +26,12 @@ const reducer = (state, action) => {
   //     loading: false
   //   };
 
-  case UPDATE_POSTS:
-    return {
-      ...state,
-      posts: [...action.posts],
-      loading: false
-    };
+  // case UPDATE_POSTS:
+  //   return {
+  //     ...state,
+  //     posts: [...action.posts],
+  //     loading: false
+  //   };
 
   // case ADD_POST:
   //   return {
@@ -41,15 +48,15 @@ const reducer = (state, action) => {
   //     })
   //   };
 
-  case LOADING:
-    return {
-      ...state,
-      loading: true
-    };
+  // case LOADING:
+  //   return {
+  //     ...state,
+  //     loading: true
+  //   };
 
-  default:
-    return state;
-  }
+  // default:
+  //   return state;
+  // }
 };
 
 const StoreProvider = ({ value = [], ...props }) => {
