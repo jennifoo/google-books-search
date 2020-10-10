@@ -18,9 +18,12 @@ const reducer = (state, action) => {
   case SHOW_RESULTS:
     return {
       ...state,
-      searchResults: [action.searchResults]
+      // NOTE: not doing spread here, choosing to reassign as opposed to appending to an array.
+      searchResults: action.searchResults
       // loading: false
     }
+    console.log("state: ");
+    console.log(state);
 
   // case SET_CURRENT_POST:
   //   return {
@@ -65,7 +68,7 @@ const reducer = (state, action) => {
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     // posts: [],
-    currentResults: []
+    searchResults: []
     // loading: false
   });
 

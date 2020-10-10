@@ -70,6 +70,13 @@ return (
 
         <div className="col-6 col-results">
             <h2>Results</h2>
+            
+              {state.searchResults.map(elem => (
+                <p>
+                  {elem.title}
+                </p>
+              ))}
+            
         </div>
 
         <div className="col-6 col-save">
