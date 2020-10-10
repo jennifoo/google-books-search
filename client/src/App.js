@@ -40,12 +40,13 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/post/:id">
-          <Post />
-        </Route>
       </Switch>
     </Router>
   );
 }
 
 export default App;
+
+{/* <Route exact path="/post/:id">
+<Post />
+</Route> */}

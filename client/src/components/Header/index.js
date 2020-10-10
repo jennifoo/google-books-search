@@ -3,12 +3,12 @@ import React from "react";
 function Header() {
 return (
         <>
-        <main id="home" className="container">
-        <header>
+        <header className="row">
+            <div className="col">
                 <h1>Google Books Search</h1>
                 <p>Search for and Save Books of Interest</p>
+            </div>
         </header>
-        </main>
         </>
 )
 }
