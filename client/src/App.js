@@ -24,23 +24,22 @@ Delete removes from MongoDB
 */
 
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
 import Home from "./pages/Home";
+import { StoreProvider } from "./utils/GlobalState";
 // import Post from "./pages/Post";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <StoreProvider>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </StoreProvider>
     </Router>
   );
 }

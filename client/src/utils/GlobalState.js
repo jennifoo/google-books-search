@@ -3,8 +3,9 @@ import {
   // SET_CURRENT_POST,
   // REMOVE_POST,
   // UPDATE_POSTS,
-  ADD_POST,
-  LOADING
+  // ADD_POST,
+  // LOADING
+  SHOW_RESULTS
 } from "./actions";
 
 const StoreContext = createContext();
@@ -12,12 +13,14 @@ const { Provider } = StoreContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
+
+  // STORE SEARCH RESULTS
   case SHOW_RESULTS:
     return {
       ...state,
-      currentPost: action.post,
-      loading: false
-    };
+      searchResults: [action.searchResults]
+      // loading: false
+    }
 
   // case SET_CURRENT_POST:
   //   return {
@@ -54,23 +57,16 @@ const reducer = (state, action) => {
   //     loading: true
   //   };
 
-  // default:
-  //   return state;
-  // }
+  default:
+    return state;
+  }
 };
 
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-    posts: [],
-    currentPost: {
-      _id: 0,
-      title: "",
-      authors: [],
-      description: "",
-      image: "",
-      link: ""
-    },
-    loading: false
+    // posts: [],
+    currentResults: []
+    // loading: false
   });
 
   return <Provider value={[state, dispatch]} {...props} />;
