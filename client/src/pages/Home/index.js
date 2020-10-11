@@ -24,12 +24,11 @@ function Home() {
         description: volumeInfo.description,
         image: volumeInfo.imageLinks.smallThumbnail,
         link: volumeInfo.infoLink
-        // ref: `btnRef${indx}`
       }})
       callback(response);
     }
     // MAKE API CALL USING SEARCH TERM
-    API.getPostData({
+    API.getBookData({
       searchTerm: searchRef
     })
     .then(res => {
@@ -39,18 +38,16 @@ function Home() {
         type: SHOW_RESULTS,
         searchResults: responseArray
       })
-      // console.log("responseArray: ");
-      // console.log(responseArray); // Array of 10 objects reduced to relevant state keys minus _id
+      // console.log("responseArray: ", responseArray); // Array of 10 objects reduced to relevant state keys minus _id
     })
     }).catch(err => console.log(err));
   }
 
   const handleSave = (index) => {
     let saveItem = state.searchResults[index];
-    console.log("saveItem: ");
-    console.log(saveItem);
+    console.log("Selected: ", saveItem);
     // STORE INTO MONGOOSE DB
-    API.savePost({
+    API.saveBook({
       title: saveItem.title,
       authors: saveItem.authors,
       description: saveItem.description,
@@ -58,8 +55,8 @@ function Home() {
       link: saveItem.link
     })
     .then(result => {
-      console.log("result: ");
-      console.log(result);
+      // console.log("Saved to DB: ", result);
+      console.log("Sucessfully saved book.")
     })
     .catch(err => console.log(err));
   }

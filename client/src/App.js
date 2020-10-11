@@ -27,7 +27,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home";
-import Post from "./pages/Post";
+import Save from "./pages/Save";
 import { StoreProvider } from "./utils/GlobalState";
 
 
@@ -40,7 +40,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/saved">
-            <Post />
+            <Save />
           </Route>
         </Switch>
       </StoreProvider>
