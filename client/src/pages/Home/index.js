@@ -74,9 +74,13 @@ return (
               {state.searchResults.map(elem => (
                 <div key={elem.title} className="result-div">
                   <div className="row">
-                    <div className="col">
+                    <div className="col-9">
                       <h3>{elem.title}</h3>
                       <p>{elem.authors.map(elem => elem)}</p>
+                    </div>
+                    <div id="result-button" className="col-3">
+                      <a className="button" target="_blank" href={elem.link}>View</a>
+                      <button type="submit">Save</button>
                     </div>
                   </div>
                   <div className="row">
@@ -85,7 +89,8 @@ return (
                     </div>
                     <div className="col-9">
                       <p>{elem.description}</p>
-                      <p>{elem.link}</p>
+                      {elem.link}
+                      
                     </div>
                   </div>
                 </div>

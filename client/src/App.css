@@ -1,4 +1,16 @@
 
+body a.button, body button {
+  border: solid 1.5px #666;
+  padding: 3px 15px;
+  color: #000;
+  line-height: 1.25;
+  font-size: 10pt;
+}
+a.button:hover, button:hover {
+  text-decoration: none;
+  background-color: #999;
+  color: #fff;
+}
 
 main{
   background-color: #eee;
@@ -19,6 +31,8 @@ header {
 #search input {
   margin-top: 25px;
   width: 85%;
+  line-height: 1.25;
+  font-size: 11pt;
 }
 
 #search button {
@@ -49,6 +63,10 @@ header {
 
 .result-div img {
   max-height: 140px;
+}
+
+#result-button {
+  text-align: right;
 }
 
 .row {
