@@ -27,8 +27,9 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home";
+import Post from "./pages/Post";
 import { StoreProvider } from "./utils/GlobalState";
-// import Post from "./pages/Post";
+
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/saved">
+            <Post />
           </Route>
         </Switch>
       </StoreProvider>

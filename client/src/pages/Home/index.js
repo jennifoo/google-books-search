@@ -1,4 +1,4 @@
-// HOME INDEX
+// PAGE: HOME 
 
 import React, { useRef } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
@@ -68,19 +68,29 @@ return (
 
     <div className="row">
 
-        <div className="col-6 col-results">
+        <div className="col col-results">
             <h2>Results</h2>
             
               {state.searchResults.map(elem => (
-                <p>
-                  {elem.title}
-                </p>
+                <div key={elem.title} className="result-div">
+                  <div className="row">
+                    <div className="col">
+                      <h3>{elem.title}</h3>
+                      <p>{elem.authors.map(elem => elem)}</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-3">
+                      <img src={elem.image} />
+                    </div>
+                    <div className="col-9">
+                      <p>{elem.description}</p>
+                      <p>{elem.link}</p>
+                    </div>
+                  </div>
+                </div>
               ))}
             
-        </div>
-
-        <div className="col-6 col-save">
-            <h2>Saved books</h2>
         </div>
 
     </div>
@@ -91,25 +101,3 @@ return (
 )}
 
 export default Home;
-
-/*
-      return new Promise((resolve, reject) => {
-        res.data.items.map(({volumeInfo}) => {
-          return {
-          title: volumeInfo.title,
-          authors: [volumeInfo.authors],
-          description: volumeInfo.description,
-          image: volumeInfo.imageLinks.smallThumbnail,
-          link: volumeInfo.infoLink
-        };
-      });
-      resolve(results => {
-        dispatch({
-          type: SHOW_RESULTS,
-          searchResults: results
-        })
-        console.log("BANNANA");
-      }).catch(err => reject(err));
-
-      })
-*/
