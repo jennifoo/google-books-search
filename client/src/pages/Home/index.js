@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
-import { LOADING, SHOW_RESULTS } from "../../utils/actions";
+import { SHOW_RESULTS } from "../../utils/actions";
 import Header from "../../components/Header";
 import API from "../../utils/API";
 

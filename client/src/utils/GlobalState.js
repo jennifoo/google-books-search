@@ -1,7 +1,8 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
   SHOW_RESULTS,
-  SHOW_SAVED
+  SHOW_SAVED,
+  DELETE_BOOK
 } from "./actions";
 
 const StoreContext = createContext();
@@ -16,39 +17,20 @@ const reducer = (state, action) => {
       ...state,
       // NOTE: not doing spread here, choosing to reassign as opposed to appending to an array.
       searchResults: action.searchResults
-      // loading: false
     };
 
   case SHOW_SAVED:
     return {
       ...state,
-      books: action.books
-      // loading: false
+      books: [...action.books]
     };
-
-    console.log("state: ", state);
-
-  // case ADD_POST:
-  //   return {
-  //     ...state,
-  //     posts: [action.post, ...state.posts],
-  //     loading: false
-  //   };
-
-  // case REMOVE_POST:
-  //   return {
-  //     ...state,
-  //     posts: state.posts.filter((post) => {
-  //       return post._id !== action._id; 
-  //     })
-  //   };
-
-  // case LOADING:
-  //   return {
-  //     ...state,
-  //     loading: true
-  //   };
-
+  case DELETE_BOOK:
+    return {
+      ...state,
+      books: state.books.filter((elem) => {
+        return elem._id !== action._id; 
+      })
+    };
   default:
     return state;
   }
@@ -58,7 +40,6 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     books: [],
     searchResults: []
-    // loading: false
   });
 
   return <Provider value={[state, dispatch]} {...props} />;

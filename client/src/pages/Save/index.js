@@ -1,17 +1,17 @@
-// PAGE: POST
+// PAGE: SAVE
 
 import React from "react";
 import Header from "../../components/Header"
 import API from "../../utils/API"
 import { useStoreContext } from "../../utils/GlobalState";
-import { LOADING, SHOW_SAVED } from "../../utils/actions";
+import { SHOW_SAVED, DELETE_BOOK } from "../../utils/actions";
 
 function Save() {
   const [ state, dispatch ] = useStoreContext();
 
   API.getBooks()
   .then(results => {
-    console.log("Get Books: ", results.data);
+    // console.log("Get Books: ", results.data);
     dispatch({
       type: SHOW_SAVED,
       books: results.data
@@ -19,6 +19,15 @@ function Save() {
   })
   .catch(err => console.log(err));
 
+  const handleDelete = (_id) => {
+    API.deleteBook(_id)
+    .then(results => {
+      dispatch({
+        type: DELETE_BOOK,
+        _id: _id
+      })
+    })
+  }
 
 return (
 <>
@@ -30,8 +39,7 @@ return (
     <div className="col col-results">
         <h2>Saved Books</h2>
         
-
-          {state.books.map((elem, index) => (
+          {state.books.map((elem) => (
             <div key={elem.title} className="result-div">
               <div className="row">
                 <div className="col-9">
@@ -40,7 +48,7 @@ return (
                 </div>
                 <div id="result-button" className="col-3">
                   <a className="button" target="_blank" href={elem.link}>View</a>
-                  <button>Delete</button>
+                  <button onClick={() => handleDelete(elem._id)}>Delete</button>
                 </div>
               </div>
               <div className="row">
@@ -53,11 +61,8 @@ return (
               </div>
             </div>
           ))}
-
-
-        
+ 
     </div>
-
     </div>
     
 </main>

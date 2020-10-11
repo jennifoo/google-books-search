@@ -17,7 +17,7 @@ export default {
   },
   // Deletes the book with the given id from the Mongo DB
   deleteBook: function(id) {
-    return axios.delete("api/books" + id);
+    return axios.delete("api/books/" + id);
   }
 
 };
