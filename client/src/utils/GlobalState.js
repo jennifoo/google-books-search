@@ -1,10 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
 import {
-  // SET_CURRENT_POST,
-  // REMOVE_POST,
-  // UPDATE_POSTS,
-  // ADD_POST,
-  // LOADING
   SHOW_RESULTS
 } from "./actions";
 

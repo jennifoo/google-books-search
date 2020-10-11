@@ -15,10 +15,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// Connect to the Mongo DB
+// NOTE: only need to change the slug to set up the Mongo DB.
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
 
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+

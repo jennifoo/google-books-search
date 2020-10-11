@@ -8,22 +8,7 @@ import API from "../../utils/API";
 
 function Home() {
   const srchRef = useRef();
-  // const btnRef0 = useRef();
-  // const btnRef1 = useRef();
-  // const btnRef2 = useRef();
-  // const btnRef3 = useRef();
-  // const btnRef4 = useRef();
-  // const btnRef5 = useRef();
-  // const btnRef6 = useRef();
-  // const btnRef7 = useRef();
-  // const btnRef8 = useRef();
-  // const btnRef9 = useRef();
-
-
-
-  // const btnRef = useRef();
   const [state, dispatch] = useStoreContext();
-
   const handleSearch = e => {
     e.preventDefault();
     // dispatch({ type: LOADING });
@@ -66,21 +51,17 @@ function Home() {
     console.log(saveItem);
     // STORE INTO MONGOOSE DB
     API.savePost({
-      title: saveItem.title
+      title: saveItem.title,
+      authors: saveItem.authors,
+      description: saveItem.description,
+      image: saveItem.image,
+      link: saveItem.link
     })
     .then(result => {
       console.log("result: ");
       console.log(result);
     })
     .catch(err => console.log(err));
-
-
-
-    // let buttonRef = btnRef.current.dataset.btn;
-    // console.log("buttonRef");
-    // console.log(buttonRef)
-
-
   }
 
 return (
@@ -135,5 +116,3 @@ return (
 )}
 
 export default Home;
-
-// data-btn={elem.index}
