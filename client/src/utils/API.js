@@ -19,9 +19,9 @@ export default {
   //   return axios.delete("/api/posts/" + id);
   // },
 
-  // savePost: function(postData) {
-  //   return axios.post("/api/posts", postData);
-  // }
+  savePost: function(postData) {
+    return axios.post("/api/posts", postData);
+  },
 
   getPostData: function({searchTerm}) {
     let query = "https://www.googleapis.com/books/v1/volumes?q=";
