@@ -7,7 +7,7 @@ This application is built with React and is integrated with the Google Books API
 ## View Application:
 
 * [Heroku Link: https://jenn-google-books-search-mern.herokuapp.com/](https://jenn-google-books-search-mern.herokuapp.com/)
-<img src ="./images/google-books-search-app.png" alt="google books search app built with React">
+<img src ="./assets/google-books-search-app.png" alt="google books search app built with React">
 
 ## Technical Components Include:
 * React components
